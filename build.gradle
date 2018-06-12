@@ -1,0 +1,78 @@
+buildscript {
+	ext {
+		springBootVersion = '1.5.10.RELEASE'
+	}
+	repositories {
+		maven { url mavenUrl }
+	}
+	dependencies {
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+	}
+}
+
+/*--------------------+
+|   Customer plugin   |
++=====================*/
+apply plugin: 'idea'
+/*--------------------------------------------+
+ |使用Groovy 插件构建项目，这个插件继承自Java插件，  |
+ |是应用具备编译能力，你的项目可以包含groovy,java代码 |
+  ============================================*/
+apply plugin: 'groovy'
+
+apply plugin: 'org.springframework.boot'
+
+
+/*--------------------------------------------+
+ |addResources = true 重新加载静态资源文件，  |
+ |不使用已经编译处理过的静态类资源 |
+ |systemProperty 配置读取配置文件类别|
+  ============================================*/
+bootRun {
+	addResources = true
+
+    systemProperty 'CATALINA_HOME', '.'
+    systemProperty 'EXCUTE_SVR_ID', 'excutedev'
+	systemProperty 'EXCUTE_LOG_PROFILE', 'dev'
+	systemProperty 'EXCUTE_APP_PROFILE', 'dev'
+
+}
+
+/*--------------------------------------------+
+ | backupSource 重新打包应用是否重新备份原始文件  |
+  ============================================*/
+springBoot {
+	backupSource = false
+}
+/*---------------------------+
+ | 快速建立可发布的应用程序插件  |
+  ===========================*/
+apply plugin: 'application'
+/*---------------------------+
+ | 打包配置   |
+ | mainClass 应用启动主程序 |
+ | executable 配置打包生成的jar包 |
+ | 配置在Unix等操作系统上，jar文件是否完全可执行|
+  ===========================*/
+bootRepackage {
+	mainClass = 'com.el.ExcuteApplication'
+	executable = true
+}
+
+group = 'com.el.excute'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = 1.8
+
+/*-----------------+
+|   运行时依赖   |
++=================*/
+
+apply from: 'build-deps.gradle'
+
+dependencies {
+	runtime group: 'mysql', name: 'mysql-connector-java'
+	//runtime group: 'com.oracle', name: 'ojdbc7', version: '12.1.0.2.0'
+	runtime group: 'org.springframework.boot', name: 'spring-boot-devtools'
+	compileOnly group: 'org.projectlombok', name: 'lombok'
+	testCompile group: 'org.springframework.boot', name: 'spring-boot-starter-test'
+}
