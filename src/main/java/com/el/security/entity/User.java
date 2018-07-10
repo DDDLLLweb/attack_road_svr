@@ -2,6 +2,7 @@ package com.el.security.entity;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
@@ -28,31 +29,27 @@ public class User implements Serializable {
      */
     private String password;
     /**
-     * 昵称
-     */
-    private String nick;
-    /**
      * 加密盐值
      */
     private String salt;
+
+    /**
+     * 角色Id
+     */
+    private Long roleId;
     /**
      * 记住我
      */
     private Boolean rememberMe;
     /**
-     * 创建时间
-     */
-    private LocalDateTime createTime;
-    /**
      * 修改时间
      */
+    @DateTimeFormat(pattern = "yyyy-MM-dd hh:mm")
     private LocalDateTime updateTime;
     /**
-     * 用户所有角色值，用于shiro做角色权限的判断
+     * 创建时间
      */
-    private Set<String> roles = new HashSet<>();
-    /**
-     * 用户所有权限值，用于shiro做资源权限的判断
-     */
-    private Set<String> perms = new HashSet<>();
+    @DateTimeFormat(pattern = "yyyy-MM-dd hh:mm")
+    private LocalDateTime createTime;
+
 }

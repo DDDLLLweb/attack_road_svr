@@ -2,12 +2,12 @@ package com.el;
 
 
 import com.el.redis.ObjectRedisTemplate;
+import org.apache.shiro.crypto.hash.Sha256Hash;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
-import org.springframework.util.StringUtils;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -40,5 +40,11 @@ public class CommonTest {
             map.put("key2",i);
         }
         System.out.println(map);
+    }
+
+    @Test
+    public void testSha256() {
+        Sha256Hash sha256Hash = new Sha256Hash("123456","abcdefg",1024);
+        System.out.println(sha256Hash.toHex());
     }
 }

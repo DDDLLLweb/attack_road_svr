@@ -18,7 +18,7 @@ import org.springframework.context.annotation.Configuration;
 @Slf4j
 @Configuration
 @AutoConfigureAfter(MybatisConfig.class)
-@MapperScan({"com.el.demo.mapper"})
+@MapperScan({"com.el.demo.mapper","com.el.security.mapper"})
 public class CustomJdbcConfig {
     static {
         SqlUtil.SQL_DIALECT = new MysqlDialect();

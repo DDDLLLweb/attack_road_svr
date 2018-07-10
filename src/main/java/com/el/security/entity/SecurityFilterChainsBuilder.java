@@ -22,7 +22,6 @@ public class SecurityFilterChainsBuilder {
         val chains = new LinkedHashMap<String, String>(ini.getSection(INI_PRIOR));
         chains.putAll(ini.getSection(INI_BASIC));
         log.trace("[CORE-SEC] Filter chains: {}", chains);
-
         return chains;
     }
 }

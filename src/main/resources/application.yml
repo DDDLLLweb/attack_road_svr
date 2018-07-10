@@ -20,7 +20,7 @@ spring:
 # jdbc connect properties
 jdbc:
   driverClassName: com.mysql.jdbc.Driver
-  url: jdbc:mysql://localhost:3306/xxx_excute?useSSL=false&characterEncoding=utf8
+  url: jdbc:mysql://localhost:3306/attack_road?useSSL=false&characterEncoding=utf8
   username: root
   password: root
   maxActive: 200

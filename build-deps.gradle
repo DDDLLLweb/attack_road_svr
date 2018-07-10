@@ -22,7 +22,7 @@ dependencies {
     compile group: 'org.springframework.boot', name: 'spring-boot-starter-data-redis'
     compile group: 'org.springframework.boot', name: 'spring-boot-starter-cache'
     // AOP (by Spring-AOP and AspectJ)
-    compile group: 'org.springframework.boot', name: 'spring-boot-starter-aop'
+//    compile group: 'org.springframework.boot', name: 'spring-boot-starter-aop'
     // Mybatis dep
     compile group:'org.mybatis.spring.boot', name: 'mybatis-spring-boot-starter', version:'1.3.1'
     // Web
@@ -31,7 +31,7 @@ dependencies {
     compile group: 'org.apache.shiro', name: 'shiro-spring', version:'1.4.0'
     compile group: 'org.apache.shiro', name: 'shiro-web', version: '1.4.0'
     // Flow
-    compile group: 'org.camunda.bpm.extension.springboot', name: 'camunda-bpm-spring-boot-starter', version: '2.1.2'
+//    compile group: 'org.camunda.bpm.extension.springboot', name: 'camunda-bpm-spring-boot-starter', version: '2.1.2'
     // JSON Parser/Generator - fastjson
     compile group: 'com.alibaba', name: 'fastjson', version: '1.2.28'
     compile group: 'com.fasterxml.jackson.datatype', name: 'jackson-datatype-jdk8', version: '2.8.8'
