@@ -1,6 +1,7 @@
 package com.el;
 
 
+import com.el.lottery.Gift;
 import com.el.redis.ObjectRedisTemplate;
 import org.apache.shiro.crypto.hash.Sha256Hash;
 import org.junit.Test;
@@ -9,7 +10,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -47,4 +50,10 @@ public class CommonTest {
         Sha256Hash sha256Hash = new Sha256Hash("123456","abcdefg",1024);
         System.out.println(sha256Hash.toHex());
     }
+
+    public static void main(String[] args) {
+        Children1 children1 = new Children1();
+        Children2 children2 = new Children2();
+    }
+
 }

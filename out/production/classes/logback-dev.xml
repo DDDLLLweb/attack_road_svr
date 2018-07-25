@@ -19,9 +19,9 @@
     <append>false</append>
   </appender>
 
-  <logger name="com.el" level="TRACE"/>
+  <logger name="com.el" level="DEBUG"/>
 
-  <root level="TRACE">
+  <root level="DEBUG">
     <appender-ref ref="CONSOLE"/>
     <appender-ref ref="LOG_FILE"/>
   </root>

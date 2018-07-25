@@ -1,9 +1,12 @@
 package com.el.security.mapper;
 
 import com.el.domain.Sql;
+import com.el.security.entity.Menu;
 import com.el.security.entity.User;
+import com.el.util.SqlUtil;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.SelectProvider;
+import org.springframework.jdbc.core.SqlProvider;
 
 import java.util.List;
 
@@ -22,6 +25,7 @@ public interface UserMapper {
         public String sysUserSql() {
             return toString();
         }
+
     }
 
     @SelectProvider(type = SqlBuilder.class, method = SqlBuilder.SYS_USER_SQL)
@@ -37,11 +41,12 @@ public interface UserMapper {
         "username username,",
         "password password,",
         "salt salt,",
-        "role_id roleId,",
         "update_time updateTime,",
         "create_time createTime",
         "from s_user",
         "where username = #{uname}"
     })
     User findUserByName(String uname);
+
+
 }

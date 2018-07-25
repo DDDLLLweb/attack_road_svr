@@ -1,5 +1,6 @@
 package com.el;
 
+import com.el.lottery.Gift;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -29,5 +30,37 @@ public class CollectionTest {
         System.out.println("List value before: "+list);
         list = Collections.singletonList("TP");
         System.out.println("List value after: "+list);
+    }
+
+    @Test
+    public void testForEach() {
+        Gift gift1 = new Gift(){{
+            setId(1);
+            setName("礼品1");
+        }};
+        Gift gift2 = new Gift(){{
+            setId(2);
+            setName("礼品2");
+        }};
+        Gift gift3 = new Gift(){{
+            setId(3);
+            setName("礼品3");
+        }};
+
+        List<Gift> lists = new ArrayList<>();
+        lists.add(gift1);
+        lists.add(gift2);
+        lists.add(gift3);
+
+//        for (Gift gift: lists) {
+//            if(gift.getId()==1) {
+//                lists.remove(gift);
+//            }
+//        }
+        for (int i =0;i<lists.size(); i++) {
+            if(lists.get(i).getId()==1) {
+                lists.remove(i);
+            }
+        }
     }
 }

@@ -1,7 +1,6 @@
 package com.el.security.realm;
 
 import com.el.security.entity.User;
-import com.el.security.service.Impl.UserServiceImpl;
 import com.el.security.service.UserService;
 import org.apache.shiro.authc.*;
 import org.apache.shiro.authc.credential.HashedCredentialsMatcher;

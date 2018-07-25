@@ -1,14 +1,10 @@
-package com.el.security.service.Impl;
+package com.el.security.service.impl;
 
 import com.el.security.entity.User;
 import com.el.security.mapper.UserMapper;
 import com.el.security.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import java.time.LocalDateTime;
-import java.util.Date;
-import java.util.Random;
 
 /**
  * @author danfeng
@@ -28,4 +24,5 @@ public class UserServiceImpl implements UserService {
     public User findUserByName(String uname){
         return userMapper.findUserByName(uname);
     }
+
 }

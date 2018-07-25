@@ -5,9 +5,11 @@ import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.function.Predicate;
+import java.util.function.UnaryOperator;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -56,4 +58,11 @@ public class FunctionalProgramTest {
         System.out.println(compare.test(Integer.valueOf(1)));
     }
 
+    @Test
+    public void testUnaryOpterator() {
+        List<Integer> list = Arrays.asList(10,20,30,40,50);
+        UnaryOperator<Integer> unaryOpt = i->i*i;
+        List<Integer> uniList = new ArrayList<>();
+        list.forEach(i->uniList.add(unaryOpt.apply(i)));
+    }
 }

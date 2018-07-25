@@ -14,7 +14,7 @@ public class DevError extends Error {
     }
 
     public static DevError todo() {
-        return new DevError("Not Impl.");
+        return new DevError("Not impl.");
     }
 
     public static DevError unexpected() {

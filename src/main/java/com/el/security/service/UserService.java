@@ -1,6 +1,9 @@
 package com.el.security.service;
 
+import com.el.security.entity.Menu;
 import com.el.security.entity.User;
+
+import java.util.List;
 
 /**
  * @author Danfeng
@@ -13,4 +16,7 @@ public interface UserService {
      * @return
      */
     User findUserByName(String userName);
+
+
+
 }
