@@ -9,18 +9,13 @@ import org.springframework.boot.autoconfigure.mongo.MongoAutoConfiguration;
 import org.springframework.boot.autoconfigure.thymeleaf.ThymeleafAutoConfiguration;
 
 @Slf4j
-@SpringBootApplication(exclude = {
-    MongoAutoConfiguration.class,
-    MongoDataAutoConfiguration.class,
-    ThymeleafAutoConfiguration.class,
-    FreeMarkerAutoConfiguration.class,
-    })
+@SpringBootApplication
 public class ExcuteApplication {
 
     public static void main(String[] args) {
-        log.info("[APP] Application startup...");
+        log.debug("[APP] Application startup...");
         SpringApplication.run(ExcuteApplication.class, args);
-        log.info("[APP] Application started.");
+        log.debug("[APP] Application started.");
     }
 
 }

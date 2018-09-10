@@ -42,3 +42,11 @@ security:
   captcha: true
   # 响应混淆开关（默认关闭）
   obscure: true
+
+# zk config
+zk:
+  zkConnect: df.vultr.com:2181
+  zkEnable: true
+  zkConnectionTimeoutMs: 30000
+  zkSyncTimeMs: 10000
+  zkRoot: /meta

@@ -31,7 +31,7 @@ apply plugin: 'org.springframework.boot'
 bootRun {
 	addResources = true
 
-    systemProperty 'CATALINA_HOME', '.'
+    systemProperty 'CATALINA_HOME', 'build'
     systemProperty 'EXCUTE_SVR_ID', 'excutedev'
 	systemProperty 'EXCUTE_LOG_PROFILE', 'dev'
 	systemProperty 'EXCUTE_APP_PROFILE', 'dev'

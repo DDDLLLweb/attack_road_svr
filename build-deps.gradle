@@ -9,6 +9,9 @@ compileJava {
 repositories {
     maven { url mavenUrl }
 }
+configurations {
+//    compile.exclude module: 'org.slf4j:*'
+}
 
 dependencies {
 
@@ -32,8 +35,10 @@ dependencies {
     compile group: 'org.apache.shiro', name: 'shiro-web', version: '1.4.0'
     // Flow
 //    compile group: 'org.camunda.bpm.extension.springboot', name: 'camunda-bpm-spring-boot-starter', version: '2.1.2'
-    // JSON Parser/Generator - fastjson
-    compile group: 'com.alibaba', name: 'fastjson', version: '1.2.28'
     compile group: 'com.fasterxml.jackson.datatype', name: 'jackson-datatype-jdk8', version: '2.8.8'
     compile group: 'com.fasterxml.jackson.datatype', name: 'jackson-datatype-jsr310', version: '2.8.8'
+    compile (group: 'com.taobao.metamorphosis', name: 'metamorphosis-client-extension', version: '1.4.6.2'){
+            exclude module: 'slf4j-log4j12'
+    }
+    compile group: 'org.springframework.boot', name: 'spring-boot-configuration-processor'
 }

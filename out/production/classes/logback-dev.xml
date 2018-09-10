@@ -20,6 +20,9 @@
   </appender>
 
   <logger name="com.el" level="DEBUG"/>
+  <logger name="org.I0Itec.zkclient" additivity="false" level="INFO">
+    <appender-ref ref="PLAN_LOG_FILE"/>
+  </logger>
 
   <root level="DEBUG">
     <appender-ref ref="CONSOLE"/>

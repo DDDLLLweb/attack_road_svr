@@ -2,7 +2,7 @@
 spring:
   profiles:
     active: ${EXCUTE_APP_PROFILE} # 输出有效的文件日志
-    include: dev,prod,demo
+    include: demo
   http:
     multipart:
       maxFileSize: 20Mb
@@ -42,3 +42,11 @@ security:
   captcha: true
   # 响应混淆开关（默认关闭）
   obscure: true
+
+# zk config
+zk:
+  zkConnect: 144.202.41.142:2181
+  zkEnable: true
+  zkConnectionTimeoutMs: 60000
+  zkSyncTimeMs: 10000
+  zkRoot: /meta
