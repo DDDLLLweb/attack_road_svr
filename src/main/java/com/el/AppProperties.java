@@ -7,10 +7,6 @@ import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
 
-/**
- * @author neo.pan
- * @since 17/5/27
- */
 @Slf4j
 @Data
 @Component

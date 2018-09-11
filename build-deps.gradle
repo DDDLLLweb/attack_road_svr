@@ -10,7 +10,7 @@ repositories {
     maven { url mavenUrl }
 }
 configurations {
-//    compile.exclude module: 'org.slf4j:*'
+
 }
 
 dependencies {
@@ -38,7 +38,9 @@ dependencies {
     compile group: 'com.fasterxml.jackson.datatype', name: 'jackson-datatype-jdk8', version: '2.8.8'
     compile group: 'com.fasterxml.jackson.datatype', name: 'jackson-datatype-jsr310', version: '2.8.8'
     compile (group: 'com.taobao.metamorphosis', name: 'metamorphosis-client-extension', version: '1.4.6.2'){
-            exclude module: 'slf4j-log4j12'
+            exclude group: 'org.slf4j'
+            exclude group: 'log4j'
+            exclude group: 'commons-logging'
     }
     compile group: 'org.springframework.boot', name: 'spring-boot-configuration-processor'
 }
