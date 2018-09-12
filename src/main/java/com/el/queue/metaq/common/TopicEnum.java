@@ -8,5 +8,9 @@ public enum TopicEnum {
     /**
      * 测试
      */
-    test
+    test,
+    /**
+     * 默认主题
+     */
+    meta_test
 }

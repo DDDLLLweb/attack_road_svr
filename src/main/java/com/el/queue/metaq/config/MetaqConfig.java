@@ -1,11 +1,9 @@
 package com.el.queue.metaq.config;
 
-import com.taobao.metamorphosis.Message;
 import com.taobao.metamorphosis.client.MessageSessionFactory;
 import com.taobao.metamorphosis.client.MetaClientConfig;
 import com.taobao.metamorphosis.client.MetaMessageSessionFactory;
 import com.taobao.metamorphosis.client.producer.MessageProducer;
-import com.taobao.metamorphosis.client.producer.SendResult;
 import com.taobao.metamorphosis.exception.MetaClientException;
 import com.taobao.metamorphosis.utils.ZkUtils;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
@@ -13,9 +11,6 @@ import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
 
 /**
  * metaQ Config

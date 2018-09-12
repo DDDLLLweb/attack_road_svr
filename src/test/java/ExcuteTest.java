@@ -12,7 +12,7 @@ import org.springframework.transaction.annotation.Transactional;
  * @author neo.pan
  * @since 2018/3/22
  */
-@ActiveProfiles({"excute", "test"})
+@ActiveProfiles({"dev", "test"})
 @RunWith(SpringRunner.class)
 @ContextConfiguration(
     initializers = {ConfigFileApplicationContextInitializer.class},
