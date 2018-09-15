@@ -1,7 +1,7 @@
 package com.el;
 
 
-import com.el.redis.ObjectRedisTemplate;
+import com.el.core.redis.ObjectRedisTemplate;
 import org.apache.shiro.crypto.hash.Sha256Hash;
 import org.junit.Test;
 import org.junit.runner.RunWith;

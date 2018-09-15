@@ -1,32 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <included>
-  <property name="LOG_FILE" value="${CATALINA_HOME}/logs/excute-dev"/>
+
   <appender name="LOG_FILE"
             class="ch.qos.logback.core.FileAppender">
     <encoder>
       <pattern>${FILE_LOG_PATTERN}</pattern>
     </encoder>
-    <file>${LOG_FILE}.log</file>
-    <append>false</append>
+    <file>${CATALINA_HOME}/logs/dev/attack-dev.log</file>
+    <append>true</append>
   </appender>
 
-  <appender name="PLAN_LOG_FILE"
-            class="ch.qos.logback.core.FileAppender">
-    <encoder>
-      <pattern>${FILE_LOG_PATTERN}</pattern>
-    </encoder>
-    <file>${LOG_FILE}.plan.log</file>
-    <append>false</append>
-  </appender>
+  <logger name="com.el" level="debug"/>
+  <logger name="org.I0Itec.zkclient" level="debug"/>
 
-  <logger name="com.el" level="DEBUG"/>
-  <logger name="org.I0Itec.zkclient" additivity="false" level="INFO">
-    <appender-ref ref="PLAN_LOG_FILE"/>
-  </logger>
-
-  <root level="DEBUG">
+  <root level="INFO">
+    <appender-ref ref="LOG_FILE" />
     <appender-ref ref="CONSOLE"/>
-    <appender-ref ref="LOG_FILE"/>
   </root>
 
 </included>

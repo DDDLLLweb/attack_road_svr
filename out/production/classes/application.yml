@@ -2,20 +2,19 @@
 spring:
   profiles:
     active: ${EXCUTE_APP_PROFILE} # 输出有效的文件日志
-    include: dev,prod,demo
+    include: demo,dev
   http:
     multipart:
       maxFileSize: 20Mb
       maxRequestSize: 21Mb
       fileSizeThreshold: 1Mb
   redis:
-    url: redis://127.0.0.1:6379
+    url: redis://:dl_love@dl.love.com:6379
     # url: redis://:Dev.1234@elpdtman:6379
     # Redis 连接超时(毫秒)
     timeout: 10000
   shiro:
     loginUrl: /login
-
 
 # jdbc connect properties
 jdbc:
@@ -45,8 +44,8 @@ security:
 
 # zk config
 zk:
-  zkConnect: df.vultr.com:2181
+  zkConnect: 144.202.41.142:2181
   zkEnable: true
-  zkConnectionTimeoutMs: 30000
+  zkConnectionTimeoutMs: 60000
   zkSyncTimeMs: 10000
   zkRoot: /meta

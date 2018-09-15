@@ -1,6 +1,5 @@
 package com.el.util;
 
-import com.el.domain.OpResult;
 import lombok.extern.slf4j.Slf4j;
 import lombok.val;
 import org.springframework.http.HttpMethod;
@@ -13,7 +12,6 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.UUID;
-import java.util.stream.Stream;
 
 import static com.el.util.OpResult.HTTP_HEADER_ATTR;
 

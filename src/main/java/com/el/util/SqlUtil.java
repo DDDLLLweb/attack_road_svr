@@ -1,8 +1,8 @@
 package com.el.util;
 
-import com.el.domain.Paging;
-import com.el.domain.SortOption;
-import com.el.jdbc.dialect.SqlDialect;
+import com.el.core.domain.Paging;
+import com.el.core.domain.SortOption;
+import com.el.core.jdbc.dialect.SqlDialect;
 import org.springframework.util.StringUtils;
 
 import java.util.Map;

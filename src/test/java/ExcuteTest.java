@@ -1,5 +1,5 @@
-import com.el.jdbc.CustomJdbcConfig;
-import com.el.jdbc.MybatisConfig;
+import com.el.core.jdbc.CustomJdbcConfig;
+import com.el.core.jdbc.MybatisConfig;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.ConfigFileApplicationContextInitializer;

@@ -33,6 +33,9 @@ dependencies {
     //shiro
     compile group: 'org.apache.shiro', name: 'shiro-spring', version:'1.4.0'
     compile group: 'org.apache.shiro', name: 'shiro-web', version: '1.4.0'
+
+    compile group: 'com.github.axet', name: 'kaptcha', version: '0.0.9'
+
     // Flow
 //    compile group: 'org.camunda.bpm.extension.springboot', name: 'camunda-bpm-spring-boot-starter', version: '2.1.2'
     compile group: 'com.fasterxml.jackson.datatype', name: 'jackson-datatype-jdk8', version: '2.8.8'

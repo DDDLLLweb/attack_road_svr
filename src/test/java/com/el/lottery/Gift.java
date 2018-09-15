@@ -1,7 +1,6 @@
 package com.el.lottery;
 
 
-import lombok.Data;
 
 /**
  * @author Danfeng

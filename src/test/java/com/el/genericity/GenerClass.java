@@ -1,5 +1,6 @@
 package com.el.genericity;
 
+
 import lombok.extern.slf4j.Slf4j;
 
 /**
