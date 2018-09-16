@@ -1,5 +1,6 @@
 package com.el.core.security.api;
 
+import com.el.common.SecurityProperties;
 import com.el.core.security.token.FormToken;
 import com.el.util.CaptchaUtil;
 import com.el.util.SecurityUtil;
@@ -9,6 +10,7 @@ import lombok.val;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.session.SessionException;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -21,6 +23,7 @@ import java.io.IOException;
 import java.util.Base64;
 
 import static com.el.core.security.entity.AuthOp.NG_ACCOUNT;
+import static com.el.core.security.entity.AuthOp.NG_CAPTCHA;
 import static com.el.util.OpResult.OK;
 
 /**
@@ -32,15 +35,26 @@ import static com.el.util.OpResult.OK;
 @RequestMapping("${security.apis:/}")
 public class LoginController {
 
+    @Autowired
+    private SecurityProperties securityProperties;
 
     @PostMapping("/login")
     public void login(HttpServletResponse response, HttpServletRequest request) {
         FormToken token = new FormToken();
         token.parse(request);
+
         val subject = SecurityUtils.getSubject();
         if (subject.isAuthenticated()) {
             subject.logout();
         }
+
+        if (securityProperties.isCaptcha()) {
+            if(!token.getCaptcha().check(false)) {
+                WebUtil.outputResult(response, NG_CAPTCHA);
+                return;
+            }
+        }
+
         try {
             subject.login(token);
             WebUtil.outputResult(response, OK);
@@ -49,7 +63,6 @@ public class LoginController {
             WebUtil.outputResult(response, NG_ACCOUNT);
         }
     }
-
 
     @GetMapping({"/captcha"})
     public String generateCaptcha(HttpServletRequest request) throws IOException {

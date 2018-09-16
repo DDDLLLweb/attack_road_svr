@@ -2,6 +2,7 @@ package com.el.core.security.realm;
 
 import com.el.core.security.entity.User;
 import com.el.core.security.service.UserService;
+import com.el.core.security.token.FormToken;
 import org.apache.shiro.authc.*;
 import org.apache.shiro.authc.credential.HashedCredentialsMatcher;
 import org.apache.shiro.authz.AuthorizationException;
@@ -55,7 +56,7 @@ public class CustomRealm extends AuthorizingRealm {
      */
     @Override
     protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken token) throws AuthenticationException {
-        UsernamePasswordToken upToken = (UsernamePasswordToken) token;
+        FormToken upToken = (FormToken) token;
         String username = upToken.getUsername();
         if (username == null) {
             throw new AccountException("Null usernames are not allowed by this realm.");

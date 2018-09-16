@@ -16,14 +16,14 @@ import org.springframework.web.bind.annotation.RestController;
  * @since 2018/9/15
  */
 @RestController
-@RequestMapping("app/")
+@RequestMapping("api/")
 @AllArgsConstructor
 public class MenuApi {
 
 
     private final MenuService menuService;
 
-    @GetMapping("/menus")
+    @GetMapping("menus")
     public ResponseEntity menus() {
         val subject = (User) SecurityUtils.getSubject().getPrincipal();
         return WebResultUtils.toOkReqEntity(menuService.menusOf(subject.getUserId().intValue()));
