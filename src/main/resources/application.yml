@@ -49,3 +49,10 @@ zk:
   zkConnectionTimeoutMs: 60000
   zkSyncTimeMs: 10000
   zkRoot: /meta
+
+# swagger
+swagger:
+   title: 进击之路Api
+   description: dl技术进击练习
+   version: 0.0.1
+   termsOfServiceUrl: https://springfox.github.io/springfox/docs/current/

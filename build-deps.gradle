@@ -46,4 +46,10 @@ dependencies {
             exclude group: 'commons-logging'
     }
     compile group: 'log4j', name: 'log4j', version: '1.2.7'
+
+    // swagger2
+    compile group: 'io.springfox', name: 'springfox-swagger2', version: '2.9.2'
+    compile group: 'io.springfox', name: 'springfox-swagger-ui', version: '2.9.2'
+
+
 }

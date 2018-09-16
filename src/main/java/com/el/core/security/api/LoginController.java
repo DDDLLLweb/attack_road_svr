@@ -5,6 +5,10 @@ import com.el.core.security.token.FormToken;
 import com.el.util.CaptchaUtil;
 import com.el.util.SecurityUtil;
 import com.el.util.WebUtil;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiImplicitParam;
+import io.swagger.annotations.ApiImplicitParams;
+import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
 import lombok.val;
 import org.apache.shiro.SecurityUtils;
@@ -33,11 +37,18 @@ import static com.el.util.OpResult.OK;
 @Slf4j
 @RestController
 @RequestMapping("${security.apis:/}")
+@Api(description = "用户权限")
 public class LoginController {
 
     @Autowired
     private SecurityProperties securityProperties;
 
+    @ApiOperation(value = "用户登陆", notes = "验证码开发环境可选")
+    @ApiImplicitParams({
+        @ApiImplicitParam(name = "username", value = "用户名", required = true, dataType = "String"),
+        @ApiImplicitParam(name = "password", value = "密码", required = true, dataType = "String"),
+        @ApiImplicitParam(name = "captcha", value = "验证码", dataType = "String")
+    })
     @PostMapping("/login")
     public void login(HttpServletResponse response, HttpServletRequest request) {
         FormToken token = new FormToken();
@@ -49,7 +60,7 @@ public class LoginController {
         }
 
         if (securityProperties.isCaptcha()) {
-            if(!token.getCaptcha().check(false)) {
+            if (!token.getCaptcha().check(false)) {
                 WebUtil.outputResult(response, NG_CAPTCHA);
                 return;
             }
@@ -64,23 +75,27 @@ public class LoginController {
         }
     }
 
+    @ApiOperation(value = "获取验证码", notes = "建议请求带上时间戳")
     @GetMapping({"/captcha"})
     public String generateCaptcha(HttpServletRequest request) throws IOException {
         byte[] captchaImageBytes = CaptchaUtil.generate(request);
         return Base64.getEncoder().encodeToString(captchaImageBytes);
     }
 
+    @ApiOperation("登陆实体")
     @GetMapping({"/principal"})
     public ResponseEntity principal() {
         val subject = SecurityUtils.getSubject();
         return subject.isAuthenticated() ? ResponseEntity.ok(subject.getPrincipal()) : ResponseEntity.noContent().build();
     }
 
+    @ApiOperation("跨域请求")
     @GetMapping("/xsrf")
     public void xsrf(HttpServletRequest request, HttpServletResponse response) {
         SecurityUtil.createXsrfToken(request, response);
     }
 
+    @ApiOperation("用户退出")
     @PostMapping("/logout")
     public ResponseEntity logout() {
         try {

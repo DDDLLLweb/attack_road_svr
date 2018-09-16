@@ -20,7 +20,9 @@ public class MenuServiceImpl implements MenuService {
 
     @Override
     public List<Menu> menusOf(Integer userId) {
+
         return menuMapper.menusOf(userId);
     }
+
 
 }

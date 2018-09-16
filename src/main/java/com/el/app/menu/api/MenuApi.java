@@ -28,4 +28,8 @@ public class MenuApi {
         val subject = (User) SecurityUtils.getSubject().getPrincipal();
         return WebResultUtils.toOkReqEntity(menuService.menusOf(subject.getUserId().intValue()));
     }
+
+    abstract class Menu1 {
+
+    }
 }
