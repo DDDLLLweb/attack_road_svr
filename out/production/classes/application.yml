@@ -15,6 +15,23 @@ spring:
     timeout: 10000
   shiro:
     loginUrl: /login
+<<<<<<< HEAD
+  rabbitmq:
+    host: dl.love.com
+    port: 5672
+    username: df
+    password: df
+    publisher-returns: true #支持发布确认
+    publisher-confirms: true  #支持发布返回
+    listener:
+        simple:
+          acknowledge-mode: manual #采用手动应答
+          concurrency: 1 #指定最小的消费者数量
+          max-concurrency: 1 #指定最大的消费者数量
+          retry:
+            enabled: true #是否支持重试
+=======
+>>>>>>> 69e6fc1ee5c3cf086b93f687b0f916c3719fdf78
 
 # jdbc connect properties
 jdbc:
@@ -49,3 +66,10 @@ zk:
   zkConnectionTimeoutMs: 60000
   zkSyncTimeMs: 10000
   zkRoot: /meta
+
+# swagger
+swagger:
+   title: 进击之路Api
+   description: dl技术进击练习
+   version: 0.0.1
+   termsOfServiceUrl: https://springfox.github.io/springfox/docs/current/

@@ -15,7 +15,6 @@ spring:
     timeout: 10000
   shiro:
     loginUrl: /login
-<<<<<<< HEAD
   rabbitmq:
     host: dl.love.com
     port: 5672
@@ -30,8 +29,6 @@ spring:
           max-concurrency: 1 #指定最大的消费者数量
           retry:
             enabled: true #是否支持重试
-=======
->>>>>>> 69e6fc1ee5c3cf086b93f687b0f916c3719fdf78
 
 # jdbc connect properties
 jdbc:
