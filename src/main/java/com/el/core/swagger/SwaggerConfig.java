@@ -4,12 +4,25 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
+<<<<<<< HEAD
+=======
+import springfox.documentation.RequestHandler;
+>>>>>>> 69e6fc1ee5c3cf086b93f687b0f916c3719fdf78
 import springfox.documentation.builders.PathSelectors;
 import springfox.documentation.builders.RequestHandlerSelectors;
 import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
+<<<<<<< HEAD
+=======
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
+import java.util.function.Function;
+import java.util.function.Predicate;
+
+>>>>>>> 69e6fc1ee5c3cf086b93f687b0f916c3719fdf78
 /**
  * @author Danfeng
  * @since 2018/9/16

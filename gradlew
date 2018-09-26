@@ -37,7 +37,8 @@ warn () {
     echo "$*"
 }
 
-die () {
+die ( ) {
+
     echo
     echo "$*"
     echo
@@ -155,7 +156,7 @@ if $cygwin ; then
 fi
 
 # Escape application args
-save () {
+save ( ) {
     for i do printf %s\\n "$i" | sed "s/'/'\\\\''/g;1s/^/'/;\$s/\$/' \\\\/" ; done
     echo " "
 }
