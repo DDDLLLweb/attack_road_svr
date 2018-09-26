@@ -1,0 +1,55 @@
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+compileJava {
+    options.compilerArgs << '-Xlint:unchecked'
+    options.compilerArgs << '-Xlint:deprecation'
+}
+
+repositories {
+    maven { url mavenUrl }
+}
+configurations {
+
+}
+
+dependencies {
+
+    // POI
+    compile group: 'org.apache.poi', name: 'poi', version: '3.16'
+    compile group: 'org.apache.poi', name: 'poi-ooxml', version: '3.16'
+    // groovy
+    compile group: 'org.codehaus.groovy', name: 'groovy-all', version: '2.4.11'
+    // DB
+//    compile group: 'com.alibaba', name: 'druid', version: '1.1.6'
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-data-redis'
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-cache'
+    // AOP (by Spring-AOP and AspectJ)
+//    compile group: 'org.springframework.boot', name: 'spring-boot-starter-aop'
+    // Mybatis dep
+    compile group:'org.mybatis.spring.boot', name: 'mybatis-spring-boot-starter', version:'1.3.1'
+    // Web
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-web'
+    //shiro
+    compile group: 'org.apache.shiro', name: 'shiro-spring', version:'1.4.0'
+    compile group: 'org.apache.shiro', name: 'shiro-web', version: '1.4.0'
+
+    compile group: 'com.github.axet', name: 'kaptcha', version: '0.0.9'
+
+    // Flow
+//    compile group: 'org.camunda.bpm.extension.springboot', name: 'camunda-bpm-spring-boot-starter', version: '2.1.2'
+    compile group: 'com.fasterxml.jackson.datatype', name: 'jackson-datatype-jdk8', version: '2.8.8'
+    compile group: 'com.fasterxml.jackson.datatype', name: 'jackson-datatype-jsr310', version: '2.8.8'
+    compile (group: 'com.taobao.metamorphosis', name: 'metamorphosis-client-extension', version: '1.4.6.2'){
+            exclude group: 'org.slf4j'
+            exclude group: 'log4j'
+            exclude group: 'commons-logging'
+    }
+    compile group: 'log4j', name: 'log4j', version: '1.2.7'
+
+    // swagger2
+    compile group: 'io.springfox', name: 'springfox-swagger2', version: '2.9.2'
+    compile group: 'io.springfox', name: 'springfox-swagger-ui', version: '2.9.2'
+
+    compile("org.springframework.boot:spring-boot-starter-amqp")
+}
