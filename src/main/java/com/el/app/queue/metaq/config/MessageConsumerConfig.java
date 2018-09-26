@@ -24,19 +24,12 @@ public class MessageConsumerConfig {
     private MessageSessionFactory messageSessionFactory;
 
     @Autowired
-    private DataSource dataSource;
-
-    @Autowired
     private CommonMsgListener commonMsgListener;
 
     @Bean
     public MessageConsumer messageConsumer() throws MetaClientException {
         MessageConsumer consumer = messageSessionFactory.createConsumer(new ConsumerConfig(GroupEnum.meta_test_group.name()));
         consumer.subscribe(TopicEnum.test.name(), 1024, commonMsgListener);
-<<<<<<< HEAD
-=======
-        // complete subscribe
->>>>>>> 69e6fc1ee5c3cf086b93f687b0f916c3719fdf78
         consumer.completeSubscribe();
         return consumer;
     }
