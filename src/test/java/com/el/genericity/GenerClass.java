@@ -1,7 +1,7 @@
 package com.el.genericity;
 
 
-import lombok.extern.slf4j.Slf4j;
+import groovy.util.logging.Slf4j;
 
 /**
  * 泛型类

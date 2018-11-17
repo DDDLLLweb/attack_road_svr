@@ -45,6 +45,7 @@ public class AppProperties implements KeyspaceResolver {
      * 应用ID
      */
     private String progId;
+
     /**
      * 应用部署的节点ID
      */
