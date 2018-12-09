@@ -21,17 +21,17 @@ public class MetaqServiceImpl implements MetaqService {
     @Autowired
     private MessageProducer messageProducer;
 
-    @SneakyThrows
+//    @SneakyThrows
     @Override
     public void pubMsg() {
-        messageProducer.publish(TopicEnum.test.name());
-        final SendResult sendResult = messageProducer.sendMessage(new Message(TopicEnum.test.name(), "hello,MetaQ!".getBytes()));
-        if (!sendResult.isSuccess()) {
-            System.err.println("Send message failed,error message:" + sendResult.getErrorMessage());
-        }
-        else {
-            System.out.println("Send message successfully,sent to " + sendResult.getPartition());
-        }
+//        messageProducer.publish(TopicEnum.test.name());
+//        final SendResult sendResult = messageProducer.sendMessage(new Message(TopicEnum.test.name(), "hello,MetaQ!".getBytes()));
+//        if (!sendResult.isSuccess()) {
+//            System.err.println("Send message failed,error message:" + sendResult.getErrorMessage());
+//        }
+//        else {
+//            System.out.println("Send message successfully,sent to " + sendResult.getPartition());
+//        }
     }
 
 }
