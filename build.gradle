@@ -3,11 +3,20 @@ buildscript {
 		springBootVersion = '1.5.10.RELEASE'
 	}
 	repositories {
-		maven { url mavenUrl }
+		maven {
+            url mavenUrl
+        }
+        maven {
+            url "https://plugins.gradle.org/m2/"
+        }
 	}
+
 	dependencies {
 		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+        // mybatis-generator 插件路径
+        classpath "gradle.plugin.com.arenagod.gradle:mybatis-generator-plugin:1.4"
 	}
+
 }
 
 /*--------------------+
@@ -22,6 +31,19 @@ apply plugin: 'groovy'
 
 apply plugin: 'org.springframework.boot'
 
+// MyBatis代码自动生成插件工具
+apply plugin: "com.arenagod.gradle.MybatisGenerator"
+
+configurations {
+    mybatisGenerator
+    compile.exclude module: 'spring-boot-starter-logging'
+}
+
+mybatisGenerator {
+    verbose = true
+    // 配置文件路径
+    configFile = 'src/main/java/mbg/config/generatorConfig.xml'
+}
 
 /*--------------------------------------------+
  |addResources = true 重新加载静态资源文件，  |
@@ -76,3 +98,5 @@ dependencies {
 	compileOnly group: 'org.projectlombok', name: 'lombok'
 	testCompile group: 'org.springframework.boot', name: 'spring-boot-starter-test'
 }
+
+
